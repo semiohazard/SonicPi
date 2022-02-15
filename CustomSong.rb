@@ -16,7 +16,7 @@ live_loop :riff do
     sleep 0.5
   end
   
-  #m3-4)
+  #m3-4
   
   4.times do
     play :f3
