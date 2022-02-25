@@ -1,9 +1,14 @@
 #Portishead - The Rip
 
 use_bpm 147
-use_synth :saw
+use_synth :blade
+
+walked = "C:/Users/eva_reyna/Documents/Audacity/AsSheWalked.wav"
+take = "C:/Users/eva_reyna/Documents/Audacity/AndAsITake.wav"
+realize = "C:/Users/eva_reyna/Documents/Audacity/Flows.wav"
 
 define :pensive do
+  
   play :e2
   sleep 0.5
   play :g3
@@ -83,7 +88,14 @@ end
 
 define :riff do
   #m1-2
-  4.times do
+  
+  1.times do
+    pensive
+  end
+  
+  sample walked
+  
+  3.times do
     pensive
   end
   
@@ -106,7 +118,13 @@ define :riff do
   stutter
   
   #m9-10
-  4.times do
+  1.times do
+    somber
+  end
+  
+  sample take
+  
+  3.times do
     somber
   end
   
@@ -116,7 +134,13 @@ define :riff do
   end
   
   #m13-14
-  4.times do
+  1.times do
+    somber
+  end
+  
+  sample realize
+  
+  3.times do
     somber
   end
   
