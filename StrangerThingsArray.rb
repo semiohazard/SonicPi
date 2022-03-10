@@ -2,7 +2,7 @@ use_bpm 160
 
 use_synth :dsaw
 
-note = ["c2", "e2", "g2", "b2", "c3", "b2", "g2", "e2", "c2"]
+note = ["c2", "e2", "g2", "b2", "c3", "b2", "g2", "e2"]
 i = 0
 
 live_loop :main_theme do
