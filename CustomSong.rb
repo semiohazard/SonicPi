@@ -93,7 +93,7 @@ define :riff do
     pensive
   end
   
-  sample walked
+  sample walked, amp: 2
   
   3.times do
     pensive
@@ -122,7 +122,7 @@ define :riff do
     somber
   end
   
-  sample take
+  sample take, amp: 2, start: 0.001
   
   3.times do
     somber
@@ -138,7 +138,7 @@ define :riff do
     somber
   end
   
-  sample realize
+  sample realize, amp: 2
   
   3.times do
     somber
@@ -151,20 +151,26 @@ define :riff do
 end
 
 live_loop :cymbal do
-  sample :drum_cymbal_hard, amp: 0.5
+  sample :drum_cymbal_hard, amp: 0.2, rate: 1.1
   sleep 1
 end
 
-#live_loop :bassdrum do
-#sleep 2
-#sample :bd_haus
-#end
+live_loop :bassdrum do
+  sleep 0.5
+  sample :drum_heavy_kick
+  sleep 0.5
+  sample :drum_heavy_kick
+  sleep 0.5
+  sample :drum_heavy_kick
+  sleep 0.5
+  
+end
 
 live_loop :hit do
-  sleep 2
-  sample :bass_voxy_hit_c
+  sleep 1
+  sample :bd_haus, amp: 1.5
+  sleep 1
 end
 
-with_fx :normaliser do
-  riff
-end
+
+riff
