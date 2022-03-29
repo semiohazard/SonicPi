@@ -30,8 +30,6 @@ live_loop :riff do
         play :e4
         sleep 0.25
         
-        #4
-        
         play :c4
         sleep 0.5
         play :e4
@@ -54,17 +52,15 @@ live_loop :riff do
         sleep 0.25
         play :c4
         sleep 0.25
+        sample :ambi_drone, amp: 4, rate: 0.25
       end
     end
   end
   stop
 end
 
-sample :ambi_drone, amp: 4, rate: 0.25
 
 live_loop :drumbeat do
-  sample :bd_ada
-  sleep 0.5
-  sample :drum_snare_soft, beat_stretch: 0.5
+  sample :bd_808, amp: 20
   sleep 0.5
 end
