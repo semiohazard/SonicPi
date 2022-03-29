@@ -1,7 +1,7 @@
 use_synth :rodeo
 
 with_fx :flanger do
-  with_fx :ping_pong do
+  with_fx :ping_pong  do
     live_loop :riff do
       play :c4
       sleep 0.5
@@ -54,4 +54,11 @@ with_fx :flanger do
       sleep 0.25
     end
   end
+end
+
+live_loop :drumbeat do
+  sample :bd_ada
+  sleep 0.5
+  sample :drum_snare_soft, beat_stretch: 0.5
+  sleep 0.5
 end
