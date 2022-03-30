@@ -8,7 +8,6 @@ take = "C:/Users/eva_reyna/Documents/Audacity/AndAsITake.wav"
 realize = "C:/Users/eva_reyna/Documents/Audacity/Flows.wav"
 
 define :pensive do
-  
   play :e2
   sleep 0.5
   play :g3
@@ -122,7 +121,7 @@ define :riff do
     somber
   end
   
-  sample take, amp: 2, start: 0.001
+  sample take, amp: 2, start: 0.002
   
   3.times do
     somber
@@ -157,20 +156,18 @@ end
 
 live_loop :bassdrum do
   sleep 0.5
-  sample :drum_heavy_kick
-  sleep 0.5
-  sample :drum_heavy_kick
-  sleep 0.5
-  sample :drum_heavy_kick
-  sleep 0.5
-  
+  3.times do
+    sample :drum_bass_soft
+    sleep 0.5
+  end
 end
 
 live_loop :hit do
   sleep 1
-  sample :bd_haus, amp: 1.5
+  sample :bd_haus
   sleep 1
 end
 
-
-riff
+live_loop :body do
+  riff
+end
