@@ -56,14 +56,15 @@ live_loop :riff do
       end
     end
   end
-  stop
 end
 
 sleep 8
-sample :ambi_drone, amp: 4, rate: 0.25
+sample :ambi_drone, amp: 2, rate: 0.25
+sleep 4
+sample :ambi_drone, amp: 2, rate: 0.5
 
 
 live_loop :drumbeat do
-  sample :bd_808, amp: 20
+  sample :bd_808, amp: 10
   sleep 0.5
 end
