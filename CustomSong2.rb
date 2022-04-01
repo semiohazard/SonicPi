@@ -1,7 +1,5 @@
 use_synth :rodeo
 
-
-
 live_loop :riff do
   2.times do
     with_fx :flanger do
@@ -58,13 +56,19 @@ live_loop :riff do
   end
 end
 
-sleep 8
-sample :ambi_drone, amp: 2, rate: 0.25
-sleep 4
-sample :ambi_drone, amp: 2, rate: 0.5
-
-
-live_loop :drumbeat do
-  sample :bd_808, amp: 10
-  sleep 0.5
+live_loop :waitlist do
+  sleep 8
+  live_loop :drone1 do
+    sample :ambi_drone, amp: 2, rate: 0.25
+    sleep sample_duration :ambi_drone, rate: 0.25
+  end
+  sleep 4
+  live_loop :drone2 do
+    sample :ambi_drone, amp: 2, rate: 0.5
+    sleep sample_duration :ambi_drone, rate: 0.5
+  end
+  live_loop :drumbeat do
+    sample :bd_808, amp: 10
+    sleep 0.5
+  end
 end
