@@ -32,7 +32,6 @@ define :riff do |a,b,c,d,e,f,g|
   end
 end
 
-live_loop :waitlist do
   live_loop :riff do
     riff 0.25, :e4, 0.25, :a3, :f4, :e4, :e4
     riff 0, :r, 0.5, :c4, :c4, :c4, :c4
@@ -51,4 +50,3 @@ live_loop :waitlist do
     sample :bd_808, amp: 10
     sleep 0.5
   end
-end
