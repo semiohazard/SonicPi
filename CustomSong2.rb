@@ -1,67 +1,42 @@
 use_synth :rodeo
 
-live_loop :riff do
-  2.times do
-    with_fx :flanger do
-      with_fx :ping_pong do
-        play :c4
-        sleep 0.5
-        play :e4
-        play :d4, amp: 0.2
-        sleep 0.5
-        play :c4
-        sleep 0.25
-        play :e4
-        play :d4, amp: 0.2
-        sleep 0.5
-        play :a3
-        sleep 0.5
-        play :a3
-        sleep 0.25
-        play :e4
-        play :d4, amp: 0.2
-        sleep 0.25
-        play :a3
-        sleep 0.25
-        play :a3
-        sleep 0.25
-        play :f4
-        sleep 0.25
-        play :e4
-        sleep 0.25
-        play :e4
-        sleep 0.25
-        
-        play :c4
-        sleep 0.5
-        play :e4
-        play :d4, amp: 0.2
-        sleep 0.5
-        play :c4
-        sleep 0.25
-        play :e4
-        play :d4, amp: 0.2
-        sleep 0.5
-        play :a3
-        sleep 0.5
-        play :a3
-        sleep 0.5
-        play :a3
-        sleep 0.25
-        play :c4
-        sleep 0.25
-        play :c4
-        sleep 0.25
-        play :c4
-        sleep 0.25
-        play :c4
-        sleep 0.25
-      end
+define :riff do |a,b,c,d,e,f,g|
+  with_fx :flanger do
+    with_fx :ping_pong do
+      play :c4
+      sleep 0.5
+      play :e4
+      sleep 0.5
+      play :c4
+      sleep 0.25
+      play :e4
+      sleep 0.5
+      play :a3
+      sleep 0.5
+      play :a3
+      
+      sleep a
+      play b
+      sleep c
+      play :a3
+      sleep 0.25
+      play d
+      sleep 0.25
+      play e
+      sleep 0.25
+      play f
+      sleep 0.25
+      play g
+      sleep 0.25
     end
   end
 end
 
 live_loop :waitlist do
+  live_loop :riff do
+    riff 0.25, :e4, 0.25, :a3, :f4, :e4, :e4
+    riff 0, :r, 0.5, :c4, :c4, :c4, :c4
+  end
   sleep 8
   live_loop :drone1 do
     sample :ambi_drone, amp: 2, rate: 0.25
