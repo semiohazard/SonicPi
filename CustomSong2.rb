@@ -27,7 +27,7 @@ define :riff do |a,b,c,d,e,f|
 end
 
 live_loop :riff do
-  use_synth :rodeo
+  use_synth :fm
   with_fx :flanger do
     with_fx :ping_pong do
       riff 0.25, :e4, 0.25, :a3, :f4, :e4
@@ -37,19 +37,20 @@ live_loop :riff do
 end
 
 sleep 8
-use_synth :growl
-play :C2, amp: 1, attack: 2, release: 6
+use_synth :fm
+play :C2, amp: 1, attack: 2, release: 3
 
 live_loop :drone1 do
-  sample :ambi_drone, amp: 1, rate: 0.25
+  sample :ambi_drone, amp: 1.5, rate: 0.25
   sleep sample_duration :ambi_drone, rate: 0.25
 end
+
 sleep 4
 live_loop :drone2 do
-  sample :ambi_drone, amp: 1, rate: 0.5
+  sample :ambi_drone, amp: 1.5, rate: 0.5
   sleep sample_duration :ambi_drone, rate: 0.5
 end
 live_loop :drumbeat do
-  sample :bd_808, amp: 10
+  sample :bd_808, amp: 20
   sleep 0.5
 end
