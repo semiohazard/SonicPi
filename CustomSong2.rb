@@ -37,18 +37,23 @@ live_loop :riff do
 end
 
 sleep 8
+
+define :drone do |r|
+  sample :ambi_drone, amp: 2, rate: r
+  sleep sample_duration :ambi_drone, rate: r
+end
+
 use_synth :fm
-play :C2, amp: 1, attack: 2, release: 3
+play :C2, amp: 1, attack: 2, release: 6
 
 live_loop :drone1 do
-  sample :ambi_drone, amp: 1.5, rate: 0.25
-  sleep sample_duration :ambi_drone, rate: 0.25
+  drone 0.25
 end
 
 sleep 4
+
 live_loop :drone2 do
-  sample :ambi_drone, amp: 1.5, rate: 0.5
-  sleep sample_duration :ambi_drone, rate: 0.5
+  drone 0.5
 end
 live_loop :drumbeat do
   sample :bd_808, amp: 20
