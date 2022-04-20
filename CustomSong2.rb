@@ -27,24 +27,27 @@ define :riff do |a,b,c,d,e,f|
 end
 
 live_loop :riff do
-  use_synth :fm
-  with_fx :flanger do
-    with_fx :ping_pong do
-      riff 0.25, :e4, 0.25, :a3, :f4, :e4
-      riff 0, :r, 0.5, :c4, :c4, :c4
+  2.times do
+    use_synth :fm
+    with_fx :flanger do
+      with_fx :ping_pong do
+        riff 0.25, :e4, 0.25, :a3, :f4, :e4
+        riff 0, :r, 0.5, :c4, :c4, :c4
+      end
     end
   end
+  stop
 end
 
 sleep 8
+
+use_synth :fm
+play :C2, amp: 1, attack: 2, release: 6
 
 define :drone do |r|
   sample :ambi_drone, amp: 2, rate: r
   sleep sample_duration :ambi_drone, rate: r
 end
-
-use_synth :fm
-play :C2, amp: 1, attack: 2, release: 6
 
 live_loop :drone1 do
   drone 0.25
